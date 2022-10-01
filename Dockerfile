@@ -1,11 +1,10 @@
 ﻿FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["azure_dev/azuretest/azuretest.csproj", "azuretest/"]
+COPY ["azuretest/azuretest.csproj", "azuretest/"]
 RUN dotnet restore "azuretest/azuretest.csproj"
 COPY . .
 WORKDIR "/src/azuretest"
