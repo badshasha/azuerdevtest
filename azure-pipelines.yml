@@ -1,0 +1,25 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+# when it's going to trigger in my case this is main branch 
+# we can create different triggers 
+trigger: 
+- main
+
+# what kind of computer 
+pool:
+  vmImage: ubuntu-latest
+  
+# dont run directly into the virtual machaine 
+# use container to run program 
+container: mcr.microsoft.com/dotnet/sdk:6.0
+
+# what are the action that we going to exicute 
+steps:
+- task: DotNetCoreCLI@2
+  inputs:
+   command: build
+
+
